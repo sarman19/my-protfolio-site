@@ -319,7 +319,7 @@ body {
 .hover-image {
   position: absolute;
 
-  right: 120px;           /* pulls image closer to arrow */
+  right: 220px;           /* pulls image closer to arrow */
   top: 50%;
 
   width: 280px;
@@ -668,16 +668,9 @@ body {
 }
 
 
-
-
-/* ===============================
-   CTA — FIGMA MATCH (FINAL)
-   =============================== */
-
 /* ===============================
    CTA — FIGMA MATCH (FINAL SCALE)
    =============================== */
-
 .cta-section {
   min-height: 100vh;
   background: #000;
@@ -688,35 +681,35 @@ body {
   align-items: center;
 
   gap: 72px;
-  padding: 0 135px;
+  padding: 0 clamp(20px, 6vw, 135px);
 }
 
-/* MAIN TEXT — FIGMA */
+/* MAIN TEXT */
 .cta-text {
-  font-size: 84px;
+  font-size: clamp(32px, 6vw, 84px);
   font-weight: 700;
-  line-height: 84px;
+  line-height: 1.1;
   color: #ffffff;
   text-align: center;
   max-width: 1200px;
 }
 
-/* CTA LINK — FIGMA */
+/* CTA LINK */
 .cta-link {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 20px;
 
-  font-size: 84px;
+  font-size: clamp(32px, 6vw, 84px);
   font-weight: 700;
-  line-height: 84px;
+  line-height: 1.1;
   text-decoration: none;
 
   color: #EBFFED;
 }
 
-/* UNDERLINE — EXACT FIGMA */
+/* UNDERLINE */
 .cta-link::after {
   content: "";
   position: absolute;
@@ -728,28 +721,31 @@ body {
   background: #14C304;
 }
 
-/* ARROW — MATCH TEXT HEIGHT */
+/* ARROW */
 .cta-link svg {
-  width: 64px;
-  height: 64px;
+  width: clamp(28px, 4vw, 64px);
+  height: clamp(28px, 4vw, 64px);
   flex-shrink: 0;
+
   transform: translateY(2px);
   transition: transform 0.25s ease;
 }
 
-/* HOVER — FIGMA-SUBTLE */
+/* HOVER */
 .cta-link:hover svg {
   transform: translateX(8px) translateY(-6px);
 }
+
+/* GRADIENT TEXT */
 .cta-gradient-text {
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   font-family: Inter;
-  font-size: 84px;
+  font-size: clamp(32px, 6vw, 84px);
   font-weight: 700;
-  line-height: 84px;
+  line-height: 1.1;
 
   background: linear-gradient(90deg, #EBFFED 0%, #14C304 100%);
   -webkit-background-clip: text;
@@ -757,6 +753,8 @@ body {
 
   word-wrap: break-word;
 }
+
+
 
 
 /* FOOTER SECTION */
@@ -949,4 +947,17 @@ body {
 .linkedin-icon:hover {
   background: linear-gradient(90deg,#14C304,#00FF66);
   border-color: transparent;
+}
+
+/* MOBILE IMPROVEMENT */
+@media (max-width: 768px) {
+
+  .cta-section {
+    gap: 40px;
+  }
+
+  .cta-link {
+    gap: 12px;
+  }
+
 }
