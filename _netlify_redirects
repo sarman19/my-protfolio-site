@@ -1,0 +1,9 @@
+/about       /pages/about.html
+/contact     /pages/contact.html
+/work        /pages/mywork.html
+/casestudy   /pages/casestudy.html
+
+/admin       /admin/admin.html
+/dashboard   /admin/admin-dashboard.html
+
+/*           /index.html   200
