@@ -1,9 +1,8 @@
-/about       /pages/about.html
-/contact     /pages/contact.html
-/work        /pages/mywork.html
-/casestudy   /pages/casestudy.html
+/about       /pages/about.html      200
+/contact     /pages/contact.html    200
+/work        /pages/mywork.html     200
+/casestudy   /pages/casestudy.html  200
+/blog        /pages/blog.html       200
 
-/admin       /admin/admin.html
-/dashboard   /admin/admin-dashboard.html
-
-/*           /index.html   200
+/admin       /admin/admin.html      200
+/dashboard   /admin/admin-dashboard.html 200
