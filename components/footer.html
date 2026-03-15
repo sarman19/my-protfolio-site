@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract | Shariar Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@700&family=Geologica&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Reset from your code */
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {font-family:'Inter',sans-serif; color:white; background:#050505;}
+
+        /* Collaborate Section CSS */
+        .collab-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            min-height: 500px !important;
+        }
+
+        .collab-section .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .collab-section .video-wrapper iframe.background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100vw;
+            height: 1200px;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            pointer-events: none;
+            border: none;
+        }
+
+        .collab-content {position:relative; z-index:1; display:flex; flex-direction:column; gap:5vh; padding: 10vh 4vw;}
+        .collab-header {display:flex; justify-content:space-between; align-items:center;}
+        .collab-header h2 {font-size:clamp(2rem,4vw,3rem); font-weight:600;}
+        .collab-header p {font-size:clamp(1rem,2vw,1.2rem); line-height:1.5; max-width:70%;}
+        
+        .collab-btn {
+            color: white; 
+            text-decoration: none; 
+            padding:.8rem 2rem; 
+            border-radius:50px; 
+            background:linear-gradient(90deg,#ACF9B2 0%,#14C304 100%);
+            font-size:1rem; 
+            font-weight:600; 
+            text-transform:uppercase; 
+            cursor:pointer; 
+            transition:transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .collab-btn:hover {transform:translateY(-3px); box-shadow:0 10px 20px rgba(20,195,4,0.3);}
+
+        .collab-cards {display:flex; gap:2vw; flex-wrap:wrap;}
+        .collab-card {
+            flex:1 1 clamp(200px,25%,300px); 
+            padding:1.5rem; 
+            background:rgba(255,255,255,0.1); 
+            border-radius:.5rem; 
+            outline:0.5px white solid; 
+            backdrop-filter:blur(10px); 
+            display:flex; 
+            flex-direction:column; 
+            gap:1rem;
+        }
+        .collab-card-icon {width:3rem; height:3rem; background:#14C304; border-radius:50%;}
+        .card-title {font-size:clamp(1rem,1.5vw,1.2rem); font-weight:600;}
+        .card-desc {font-size:clamp(.9rem,1vw,1rem);}
+
+        /* CTA Section CSS */
+        .cta-section {
+            min-height: 100vh;
+            background: #050505;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 72px;
+            padding: 0 135px;
+            text-align: center;
+        }
+        .cta-text {
+            font-size: clamp(2.8rem, 6vw, 5.25rem);
+            font-weight: 700;
+            line-height: 1.05;
+            max-width: 1200px;
+        }
+        .cta-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            color: #EBFFED;
+        }
+        .cta-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -14px;
+            width: 100%;
+            height: 4px;
+            background: #14C304;
+        }
+        .cta-link svg {width: 64px; height: 64px; transition: transform 0.25s ease;}
+        .cta-link:hover svg {transform: translateX(8px) translateY(-6px);}
+        .cta-gradient-text {
+            background: linear-gradient(90deg, #EBFFED 0%, #14C304 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Page 7 Footer CSS */
+        .page7 {
+            position: relative;
+            min-height: 300px;
+            padding: 80px 135px 50px;
+            display: flex;
+            align-items: flex-end;
+            background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.65) 100%);
+            overflow: hidden;
+        }
+        .page7 .video-wrapper {position: absolute; inset: 0; z-index: -1;}
+        .page7 .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 177.78vh;
+            height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border: none;
+        }
+        .footer-container {width: 100%; max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;}
+        .footer-row {display: flex; justify-content: space-between; align-items: center;}
+        .footer-name {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 32px;
+            background: linear-gradient(90deg, #EBFFED 0%, #14C304 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .footer-menu {display: flex; gap: 46px;}
+        .footer-menu a {font-size: 16px; font-weight: 400; color: #fff; text-decoration: none; transition: opacity 0.2s ease;}
+        .footer-menu a.active {font-weight: 700;}
+        .footer-credit {font-size: 14px; opacity: 0.7;}
+        .footer-icons {display: flex; gap: 18px;}
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            outline: 1px solid #EBFFED;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.25s ease;
+        }
+        .icon-circle svg {width: 22px; height: 22px; fill: #EBFFED; transition: 0.25s ease;}
+        .icon-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #14C304, 0 0 18px #EBFFED, 0 0 28px rgba(20,195,4,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .collab-header {flex-direction:column; align-items:flex-start; gap:2vh;}
+            .cta-section {padding: 0 24px; gap: 48px;}
+            .page7 {padding: 60px 24px 40px;}
+            .footer-row {flex-direction: column; gap: 24px; text-align: center;}
+            .footer-menu {gap: 24px;}
+        }
+    </style>
+</head>
+<body>
+
+<section class="section collab-section">
+    <div class="video-wrapper">
+      <iframe 
+        class="background-video"
+        src="https://www.youtube.com/embed/80TsOWSXmek?autoplay=1&mute=1&loop=1&playlist=80TsOWSXmek&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0"
+        frameborder="0"
+        allow="autoplay; encrypted-media">
+      </iframe>
+    </div>
+
+    <div class="collab-content">
+        <div class="collab-header">
+            <div>
+                <h2>Why Collaborate with Me?</h2>
+                <p>Great design is more than visuals—it’s about creating seamless, user-friendly experiences that drive results. I blend creativity, strategy, and collaboration to bring your vision to life.</p>
+            </div>
+            <a href="contact.html" class="collab-btn">Get in touch</a>
+        </div>
+        <div class="collab-cards">
+            <div class="collab-card">
+                <div class="collab-card-icon"></div>
+                <div>
+                    <div class="card-title">User-Centered Design</div>
+                    <div class="card-desc">Intuitive, engaging, and tailored to your audience.</div>
+                </div>
+            </div>
+            <div class="collab-card">
+                <div class="collab-card-icon"></div>
+                <div>
+                    <div class="card-title">Strategic Approach</div>
+                    <div class="card-desc">Research-driven decisions that align with your goals.</div>
+                </div>
+            </div>
+            <div class="collab-card">
+                <div class="collab-card-icon"></div>
+                <div>
+                    <div class="card-title">Seamless Collaboration</div>
+                    <div class="card-desc">Clear communication and a smooth workflow.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="cta-section">
+  <h2 class="cta-text">
+    See the impact of good, conversion-oriented<br>
+    design on your business.
+  </h2>
+
+  <a href="https://www.linkedin.com/in/s-sarman" class="cta-link">
+    <div class="cta-gradient-text">Let’s Work Together</div>
+    <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+      <path d="M8 46L46 8M46 8V38M46 8H16"
+        stroke="#14C304"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
+
+<section class="page7">
+  <div class="video-wrapper">
+    <iframe 
+      class="background-video"
+      src="https://www.youtube.com/embed/CjTH7ShAfUU?autoplay=1&mute=1&loop=1&playlist=CjTH7ShAfUU&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0&iv_load_policy=3&disablekb=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media">
+    </iframe>
+  </div>
+
+  <div class="footer-container">
+    <div class="footer-row top-row">
+      <div class="footer-name">Sharia Sarman</div>
+      <div class="footer-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About us</a>
+        <a href="contact.html">Contact</a>
+        <a href="casestudy.html">Case study</a>
+      </div>
+    </div>
+
+    <div class="footer-row bottom-row">
+      <div class="footer-credit">© Designed by Shariar Sarman</div>
+      <div class="footer-icons">
+        <a href="https://www.linkedin.com/in/s-sarman" class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5C1.9 5.5 1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5C4.1 1.5 5 2.4 5 3.5ZM5 8H1V23H5V8ZM23 23H19V14.8C19 12.4 17.5 11.5 16.1 11.5C14.7 11.5 13 12.5 13 14.7V23H9V8H13V10C13.6 9.1 15.2 8 17.3 8C21.1 8 23 10.4 23 14.1V23Z"/></svg>
+        </a>
+        <a href="https://www.behance.net/shariarsarman1" class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M8.1 11.5c1.7 0 2.9-.9 2.9-2.5 0-1.7-1.1-2.4-2.9-2.4H4v4.9h4.1Zm.3 6.1c1.9 0 3.2-.9 3.2-2.7 0-1.7-1.3-2.6-3.2-2.6H4v5.3h4.4ZM14 7h6V5h-6v2Zm-2 7.8c0 3.2 2.3 5.2 5.4 5.2 2.6 0 4.3-1.3 4.9-3.6h-2.7c-.3.8-1.1 1.3-2.2 1.3-1.6 0-2.6-1-2.6-2.5h7.6c.1-.3.1-.6.1-.9 0-3.3-2.1-5.4-5.1-5.4-3.1 0-5.4 2.2-5.4 5.9Zm5.3-3.8c1.3 0 2.2.8 2.3 2.1h-4.7c.2-1.3 1.1-2.1 2.4-2.1Z"/></svg>
+        </a>
+        <a href="https://dribbble.com/ShariarSarman" class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12C0 18.6 5.4 24 12 24C18.6 24 24 18.6 24 12C24 5.4 18.6 0 12 0ZM19.7 7.1C20.8 8.6 21.4 10.5 21.4 12.5C18.1 11.8 15.2 11.7 12.5 12.2C12.3 11.8 12.1 11.3 11.9 10.9C15.1 9.8 17.8 8.2 19.7 7.1ZM12 2.4C14 2.4 15.8 3 17.3 4C15.6 5.2 13.3 6.4 10.4 7.3C9.6 5.8 8.7 4.4 7.7 3.2C9 2.7 10.4 2.4 12 2.4ZM6 4.3C7 5.4 8 6.9 8.9 8.6C6.6 9.2 4.2 9.4 2 9.2C2.9 7.1 4.3 5.4 6 4.3ZM2.4 12C2.4 11.8 2.4 11.6 2.4 11.4C4.8 11.6 7.4 11.3 10.2 10.6C10.4 11 10.5 11.4 10.7 11.8C7.8 12.7 5.6 14.3 4.1 16.5C2.9 15 2.4 13.6 2.4 12ZM12 21.6C9.4 21.6 7.1 20.7 5.4 19C6.8 16.7 8.8 15.2 11.5 14.5C12.5 16.8 13.3 19.2 13.8 21.6C13.2 21.6 12.6 21.6 12 21.6ZM15.7 21.1C15.2 18.9 14.5 16.8 13.6 14.7C16.1 14.3 18.8 14.4 21.6 15C20.8 18.3 18.6 20.7 15.7 21.1Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/shariarsarman.site" class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 16.7 5.4 20.7 10 21.7V14.5H7V12H10V9.8C10 6.9 11.8 5.3 14.4 5.3C15.4 5.3 16.5 5.5 17.5 5.7V8H16C14.6 8 14.3 8.8 14.3 9.7V12H17.4L16.9 14.5H14.3V21.7C18.9 20.7 22 16.7 22 12Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/shariarsarman/" class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7V17C2 19.8 4.2 22 7 22H17C19.8 22 22 19.8 22 17V7C22 4.2 19.8 2 17 2H7ZM12 17C9.2 17 7 14.8 7 12C7 9.2 9.2 7 12 7C14.8 7 17 9.2 17 12C17 14.8 14.8 17 12 17ZM18 7.5C18 8.3 17.3 9 16.5 9C15.7 9 15 8.3 15 7.5C15 6.7 15.7 6 16.5 6C17.3 6 18 6.7 18 7.5Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function reportHeight() {
+    // This calculates the total height of the footer's content
+    const body = document.body;
+    const html = document.documentElement;
+    const height = Math.max(
+      body.scrollHeight, 
+      body.offsetHeight, 
+      html.clientHeight, 
+      html.scrollHeight, 
+      html.offsetHeight
+    );
+    
+    // This sends the height number to your My Work page
+    window.parent.postMessage(height, "*");
+  }
+
+  // Report height when the page loads
+  window.onload = reportHeight;
+  
+  // Report height again if the window is resized (like switching to mobile)
+  window.onresize = reportHeight;
+
+  // Extra insurance: Report height after 1 second (in case videos/images take a moment)
+  setTimeout(reportHeight, 1000);
+</script>
+
+</body>
+
+</html>

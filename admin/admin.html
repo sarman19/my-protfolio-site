@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Login — Shariar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,Arial;
+  background:#060607;
+  color:#fff;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.login-box{
+  width:100%;
+  max-width:380px;
+  background:#0f0f10;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  padding:32px;
+}
+h1{font-size:22px;margin-bottom:8px}
+p{font-size:14px;opacity:.7;margin-bottom:22px}
+input{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:14px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#080808;
+  color:#fff;
+  font-size:14px;
+}
+button{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  background:linear-gradient(90deg,#14C304,#00FFD1);
+  color:#000;
+  font-weight:700;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+.error{
+  color:#ff5b5b;
+  font-size:13px;
+  margin-top:12px;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h1>Admin Login</h1>
+  <p>Authorized access only</p>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="login()">Sign In</button>
+  <div class="error" id="error"></div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script>
+/* 🔥 Firebase Init (SAFE) */
+const firebaseConfig = {
+  apiKey: "AIzaSyARRuy_LK77TV9_xk7qngO6F99Bf63TmjE",
+  authDomain: "my-protfolio-36077.firebaseapp.com",
+  projectId: "my-protfolio-36077",
+  storageBucket: "my-protfolio-36077.firebasestorage.app",
+  messagingSenderId: "889602371178",
+  appId: "1:889602371178:web:1afebab03b1f1e6bf5a413"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const auth = firebase.auth();
+
+/* 🔐 LOGIN */
+function login(){
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const errorBox = document.getElementById("error");
+
+  errorBox.style.display = "none";
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      window.location.replace("admin-dashboard.html");
+    })
+    .catch(err => {
+      errorBox.innerText = err.message;
+      errorBox.style.display = "block";
+    });
+}
+
+/* 🔒 AUTO REDIRECT (ONE WAY ONLY) */
+auth.onAuthStateChanged(user => {
+  if (user) {
+    window.location.replace("admin-dashboard.html");
+  }
+});
+</script>
+
+</body>
+</html>
