@@ -102,57 +102,57 @@
 
   <!-- PAGE 2 -->
   <section class="page2">
-    <div class="title-section">
+  <div class="title-section">
+    <div class="text-container">
       <h1 class="design-text">Design that solves</h1>
-
+      
       <div class="bar-line">
         <div class="line"></div>
-        <h1 class="bold-text">Problems,One</h1>
+        <h1 class="bold-text">Problems, one</h1>
       </div>
 
-      <div class="bottom-text">
-        <div class="text-btn-row">
-          <h1 class="gradient-text">Product at a time.</h1>
-          <div class="button-group">
-            <a href="pages/contact.html" class="primary-btn">Get in touch</a>
-            <a href="pages/mywork.html" class="secondary-btn">View all works</a>
-          </div>
-        </div>
-      </div>
+      <h1 class="gradient-text">Product at a time.</h1>
     </div>
 
-    <div class="work-section">
-      <div class="work-item">
-        <h2 class="work-title white">Web Design</h2>
-        <img src="assets/images/web_app.jpg" alt="Web Design" class="hover-image" />
-        <a href="#" class="arrow-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
-            <path d="M2 54L54 2M54 2V50.0381M54 2H5.46667" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+    <div class="button-group">
+      <a href="pages/contact.html" class="primary-btn">Get in touch</a>
+    </div>
+  </div>
 
-      <div class="work-item">
-        <h2 class="work-title white">Mobile App</h2>
-        <img src="assets/images/mobile_app.jpg" alt="Mobile App" class="hover-image" />
-        <a href="https://dribbble.com/shots/24452459-Real-estate-App-UI" class="arrow-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
-            <path d="M2 54L54 2M54 2V50.0381M54 2H5.46667" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="work-item">
-        <h2 class="work-title white">Product Design</h2>
-        <img src="assets/images/product.jpg" alt="Product Design" class="hover-image" />
-        <a href="#" class="arrow-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
-            <path d="M2 54L54 2M54 2V50.0381M54 2H5.46667" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+  <div class="work-section">
+    
+    <div class="work-item">
+      <h2 class="work-title white">Mobile App</h2>
+      <img src="assets/images/mobile_app.jpg" alt="Mobile App" class="hover-image" />
+      <a href="#" class="arrow-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <path d="M2 54L54 2M54 2V50.0381M54 2H5.46667" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
 
-  </section>
+    <div class="work-item">
+      <h2 class="work-title white">Web App Design</h2>
+      <img src="assets/images/web_app_design.jpg" alt="Web App" class="hover-image" />
+      <a href="#" class="arrow-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <path d="M2 54L54 2M54 2V50.0381M54 2H5.46667" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="work-item">
+      <h2 class="work-title white">Web Design</h2>
+      <img src="assets/images/web_design.jpg" alt="Web Design" class="hover-image" />
+      <a href="#" class="arrow-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <path d="M2 54L54 2M54 2V50.0381M54 2H5.46667" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
 
   <!-- PAGE 3 -->
   <section class="page3">
@@ -210,7 +210,7 @@
   </h1>
 
   <button class="verify-btn"
-onclick="window.open('https://linkedin.com/in/s-sarman','_blank')">
+onclick="window.open('https://www.linkedin.com/in/s-sarman/details/recommendations/?_l=en_US','_blank')">
 VERIFY REVIEW
 </button>
 
@@ -412,31 +412,55 @@ VERIFY REVIEW
 const slider = document.querySelector('.projects-slider');
 
 let isDown = false;
-let startX = 0;
+let startX;
+let scrollLeft;
 
 slider.addEventListener('mousedown', (e) => {
-  if (e.button !== 0) return;
+  // Only allow left click (button 0)
+  if (e.button !== 0) return; 
+  
   isDown = true;
-  startX = e.pageX;
+  slider.classList.add('active');
   slider.style.cursor = 'grabbing';
+  
+  // Calculate start position relative to the slider
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
 });
 
-window.addEventListener('mouseup', () => {
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.style.cursor = 'grab';
+});
+
+slider.addEventListener('mouseup', () => {
   isDown = false;
   slider.style.cursor = 'grab';
 });
 
 slider.addEventListener('mousemove', (e) => {
   if (!isDown) return;
-
-  const x = e.pageX;
-  const walk = x - startX;
-  slider.scrollLeft -= walk;
-  startX = x;
+  
+  e.preventDefault(); // Prevent text selection while dragging
+  const x = e.pageX - slider.offsetLeft;
+  
+  // Multiplier (3) makes the drag feel faster/more responsive
+  const walk = (x - startX) * 2; 
+  slider.scrollLeft = scrollLeft - walk;
 });
 
-slider.addEventListener('wheel', e => e.preventDefault(), { passive: false });
-slider.addEventListener('dragstart', e => e.preventDefault());
+// Allow horizontal scroll with mouse wheel (but don't block vertical page scroll)
+slider.addEventListener('wheel', (e) => {
+  if (e.deltaX !== 0) {
+    e.preventDefault();
+    slider.scrollLeft += e.deltaX;
+  }
+});
+
+// Prevent images from being "ghost dragged" by the browser
+slider.addEventListener('dragstart', (e) => {
+  if (e.target.tagName === 'IMG') e.preventDefault();
+});
 </script>
 
 

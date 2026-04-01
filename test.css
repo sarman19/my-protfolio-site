@@ -29,7 +29,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -39,7 +39,7 @@ body {
   align-items: center;
   border-bottom: 1px solid rgba(255,255,255,0.25);
   backdrop-filter: blur(20px);
-  z-index: 100;
+  z-index: 30;
 }
 
 .logo {
@@ -412,6 +412,7 @@ body {
   opacity: 1;
   transform: translate(0, -50%) scale(1);
 }
+
 
 /* PAGE 3 */
 .page3 { position: relative; width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 130px 0; }
