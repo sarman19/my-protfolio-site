@@ -116,9 +116,9 @@ body {
 .name-text {
   margin-top: 8px;
   font-family: 'Inter', sans-serif;
-  font-size: 160px;
+  font-size: 140px;
   font-weight: 700;
-  line-height: 160px;
+  line-height: 140px;
   letter-spacing: -8px;
   background: linear-gradient(90deg,#EBFFED 0%, #14C304 100%);
   -webkit-background-clip: text;
