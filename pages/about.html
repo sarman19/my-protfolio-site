@@ -3,94 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | Shariar Portfolio</title>
+<title>About | Shariar Sarman — Product Designer</title>
 <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@700&family=Geologica&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/about.css">
+<style>
+  /* ================================
+     EXPERIENCE SECTION
+     ================================ */
+  .experience-section {
+    background: #050505;
+    padding: 130px 135px;
+  }
+
+  .experience-header {
+    margin-bottom: 72px;
+  }
+
+  .experience-tag {
+    color: #14C304;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .experience-title {
+    font-size: 68px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .experience-title span {
+    background: linear-gradient(90deg, #EBFFED 0%, #14C304 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .experience-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 48px 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    gap: 48px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .experience-item:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .experience-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .exp-left {
+    flex: 0 0 280px;
+  }
+
+  .exp-company {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .exp-type {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 4px;
+  }
+
+  .exp-period {
+    font-size: 14px;
+    color: #14C304;
+    font-weight: 600;
+  }
+
+  .exp-middle {
+    flex: 1;
+  }
+
+  .exp-role {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .exp-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .exp-right {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 260px;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .exp-tag {
+    padding: 6px 14px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.15);
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+  }
+
+  .exp-tag.green {
+    border-color: rgba(20,195,4,0.4);
+    color: #14C304;
+  }
+
+  /* ================================
+     SCROLL ANIMATION
+     ================================ */
+  .anim-fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .anim-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 <body>
 
 <!-- Navbar -->
 <div class="navbar">
-    <div class="navbar-logo">Shariar</div>
-
-    <div class="nav-links">
-      <a href="/">Home</a>
+  <div class="navbar-logo">Shariar</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
     <a href="/about" class="active">About</a>
     <a href="/contact">Contact</a>
     <a href="/work">My Work</a>
     <a href="/casestudy">Case Study</a>
     <a href="/blog">Blog</a>
-    </div>
-
-    <!-- ✅ LINKEDIN ICON (ADDED) -->
-    <a href="https://www.linkedin.com/in/s-sarman" target="_blank" class="linkedin-icon">
-      <svg viewBox="0 0 24 24">
-        <path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5C1.9 5.5 1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5C4.1 1.5 5 2.4 5 3.5ZM5 8H1V23H5V8ZM23 23H19V14.8C19 12.4 17.5 11.5 16.1 11.5C14.7 11.5 13 12.5 13 14.7V23H9V8H13V10C13.6 9.1 15.2 8 17.3 8C21.1 8 23 10.4 23 14.1V23Z"/>
-      </svg>
-    </a>
+  </div>
+  <a href="https://www.linkedin.com/in/s-sarman" target="_blank" class="linkedin-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5C1.9 5.5 1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5C4.1 1.5 5 2.4 5 3.5ZM5 8H1V23H5V8ZM23 23H19V14.8C19 12.4 17.5 11.5 16.1 11.5C14.7 11.5 13 12.5 13 14.7V23H9V8H13V10C13.6 9.1 15.2 8 17.3 8C21.1 8 23 10.4 23 14.1V23Z"/>
+    </svg>
+  </a>
 </div>
 
 
 <!-- Hero Section -->
 <section class="section hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            I’m a UI/UX Designer.<br/>
-            I specialize in creating intuitive, user-friendly digital experiences. I help businesses transform ideas into visually stunning and highly functional designs, ensuring seamless user interaction.
-            <div class="hero-buttons">
-                <div class="button-primary">Download CV</div>
-                <div class="role-label">UI/UX Designer</div>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="hero-image-gradient"></div>
-            <img src="../assets/images/myphoto3.png" alt="Hero" class="hero-img">
-        </div>
-        <div class="hero-stats">
-            <div class="projects">
-                <div class="avatars">
-                    <img src="../assets/images/Ellipse 112.png" alt="">
-                    <img src="../assets/images/Ellipse 113.png" alt="">
-                    <img src="../assets/images/Ellipse 114.png" alt="">
-                    <img src="../assets/images/Ellipse 115.png" alt="">
-                </div>
-                <div class="stats-text">
-                    <div class="projects-count">99+ Project</div>
-                    <div class="rating">
-                        <span>5.0/5.0</span>
-                        <div class="stars">
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                            <div class="star"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="arrow"></div>
-        </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      I'm a Product Designer.<br/>
+      I specialize in crafting intuitive, user-first digital experiences — from design systems and prototypes to scalable UI for web and mobile. I help businesses turn complex ideas into clean, functional products that users love.
+      <div class="hero-buttons">
+        <a href="../assets/Shariar_Sarman_CV.pdf" download class="button-primary">Download CV</a>
+        <div class="role-label">Product Designer</div>
+      </div>
     </div>
+    <div class="hero-image">
+      <div class="hero-image-gradient"></div>
+      <img src="../assets/images/myphoto3.png" alt="Shariar Sarman" class="hero-img">
+    </div>
+    <div class="hero-stats">
+      <div class="projects">
+        <div class="avatars">
+          <img src="../assets/images/Ellipse 112.png" alt="">
+          <img src="../assets/images/Ellipse 113.png" alt="">
+          <img src="../assets/images/Ellipse 114.png" alt="">
+          <img src="../assets/images/Ellipse 115.png" alt="">
+        </div>
+        <div class="stats-text">
+          <div class="projects-count">99+ Projects</div>
+          <div class="rating">
+            <span>5.0/5.0</span>
+            <div class="stars">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="arrow"></div>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS SLIDER -->
 <section class="skills-section" aria-label="Skills">
   <div class="skills-viewport">
     <div class="skills-slider">
-      <span class="skill">✦ Design</span>
-      <span class="skill">✦ Product</span>
-      <span class="skill">✦ UI/UX</span>
-      <span class="skill">✦ Landing Page</span>
-      <span class="skill">✦ Web App</span>
+      <span class="skill">✦ Product Design</span>
+      <span class="skill">✦ UI Design</span>
+      <span class="skill">✦ UX Research</span>
+      <span class="skill">✦ Design Systems</span>
+      <span class="skill">✦ Wireframing</span>
+      <span class="skill">✦ Prototyping</span>
       <span class="skill">✦ Mobile App</span>
-
+      <span class="skill">✦ Web App</span>
+      <span class="skill">✦ User Flows</span>
+      <span class="skill">✦ Figma</span>
       <!-- duplicate for seamless loop -->
-      <span class="skill">✦ Design</span>
-      <span class="skill">✦ Product</span>
-      <span class="skill">✦ UI/UX</span>
-      <span class="skill">✦ Landing Page</span>
-      <span class="skill">✦ Web App</span>
+      <span class="skill">✦ Product Design</span>
+      <span class="skill">✦ UI Design</span>
+      <span class="skill">✦ UX Research</span>
+      <span class="skill">✦ Design Systems</span>
+      <span class="skill">✦ Wireframing</span>
+      <span class="skill">✦ Prototyping</span>
       <span class="skill">✦ Mobile App</span>
+      <span class="skill">✦ Web App</span>
+      <span class="skill">✦ User Flows</span>
+      <span class="skill">✦ Figma</span>
     </div>
   </div>
 </section>
@@ -98,128 +241,193 @@
 
 <!-- How I Work Section -->
 <section class="section work-section">
-    <div class="slide-container">
-        <header class="header">
-            <h1 class="main-title">How I Work</h1>
-            <p class="subtitle">I follow a structured yet flexible approach to ensure seamless user experiences and impactful designs.</p>
-        </header>
+  <div class="slide-container">
+    <header class="header anim-fade-up">
+      <h1 class="main-title">How I Work</h1>
+      <p class="subtitle">A structured yet flexible approach to ensure seamless user experiences and impactful designs.</p>
+    </header>
 
-        <main class="timeline">
-            <div class="timeline-item">
-                <div class="stage-name">Discovery & Research</div>
-                <div class="line-dot"></div>
-                <div class="stage-description">
-                    Understanding your goals, users, and market to create a strong foundation.
-                </div>
-            </div>
+    <main class="timeline">
+      <div class="timeline-item">
+        <div class="stage-name">Discovery & Research</div>
+        <div class="line-dot"></div>
+        <div class="stage-description">Understanding your goals, users, and market to create a strong foundation.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="stage-name">Wireframing & Prototyping</div>
+        <div class="line-dot"></div>
+        <div class="stage-description">Crafting intuitive layouts and interactive prototypes to visualize the experience.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="stage-name">Design & Refinement</div>
+        <div class="line-dot"></div>
+        <div class="stage-description">Bringing ideas to life with pixel-perfect UI designs focused on aesthetics and usability.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="stage-name">User Testing & Feedback</div>
+        <div class="line-dot"></div>
+        <div class="stage-description">Iterating based on real user insights to ensure the best experience.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="stage-name">Handoff & Support</div>
+        <div class="line-dot"></div>
+        <div class="stage-description">Delivering production-ready assets and guiding development for a smooth implementation.</div>
+      </div>
+    </main>
+  </div>
+</section>
 
-            <div class="timeline-item">
-                <div class="stage-name">Wireframing & Prototyping</div>
-                <div class="line-dot"></div>
-                <div class="stage-description">
-                    Crafting intuitive layouts and interactive prototypes to visualize the experience.
-                </div>
-            </div>
 
-            <div class="timeline-item">
-                <div class="stage-name">Design & Refinement</div>
-                <div class="line-dot"></div>
-                <div class="stage-description">
-                    Bringing ideas to life with pixel-perfect UI designs, focusing on aesthetics.
-                </div>
-            </div>
+<!-- EXPERIENCE SECTION -->
+<section class="experience-section">
+  <div class="experience-header anim-fade-up">
+    <p class="experience-tag">Experience</p>
+    <h2 class="experience-title">Where I've <span>Worked</span></h2>
+  </div>
 
-            <div class="timeline-item">
-                <div class="stage-name">User Testing & Feedback</div>
-                <div class="line-dot"></div>
-                <div class="stage-description">
-                    Iterating based on real user insights to ensure the best experience.
-                </div>
-            </div>
+  <div class="experience-list">
 
-            <div class="timeline-item">
-                <div class="stage-name">Handoff & Support</div>
-                <div class="line-dot"></div>
-                <div class="stage-description">
-                    Delivering assets and guiding development for a smooth implementation.
-                </div>
-            </div>
-        </main>
+    <!-- ILM AI LTD -->
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-company">ILM AI LTD</div>
+        <div class="exp-type">Part-time · Remote · United Kingdom</div>
+        <div class="exp-period">Dec 2025 — Present</div>
+      </div>
+      <div class="exp-middle">
+        <div class="exp-role">Sr. UI/UX Designer</div>
+        <div class="exp-desc">Designing AI-driven digital products that simplify complex workflows into intuitive experiences. Collaborating with product and engineering teams to translate AI concepts into clean, user-first interfaces.</div>
+      </div>
+      <div class="exp-right">
+        <span class="exp-tag green">Current</span>
+        <span class="exp-tag">AI Products</span>
+        <span class="exp-tag">Design Systems</span>
+        <span class="exp-tag">Figma</span>
+      </div>
     </div>
+
+    <!-- SeloraX -->
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-company">SeloraX</div>
+        <div class="exp-type">Contract · Hybrid · Dhaka, Bangladesh</div>
+        <div class="exp-period">Dec 2025 — Mar 2026</div>
+      </div>
+      <div class="exp-middle">
+        <div class="exp-role">Sr. UI/UX Designer</div>
+        <div class="exp-desc">Led the design of an e-commerce CRM dashboard — a full design system covering both user and admin surfaces. Drove cross-functional collaboration to deliver scalable, product-driven interfaces.</div>
+      </div>
+      <div class="exp-right">
+        <span class="exp-tag">E-commerce</span>
+        <span class="exp-tag">CRM Dashboard</span>
+        <span class="exp-tag">Design Systems</span>
+        <span class="exp-tag">Prototyping</span>
+      </div>
+    </div>
+
+    <!-- Ovious Studio -->
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-company">Ovious Studio</div>
+        <div class="exp-type">Full-time · On-site · Dhaka, Bangladesh</div>
+        <div class="exp-period">Oct 2024 — Feb 2026</div>
+      </div>
+      <div class="exp-middle">
+        <div class="exp-role">UI/UX Designer</div>
+        <div class="exp-desc">Delivered end-to-end UI/UX across web, SaaS, and mobile projects. Collaborated closely with clients and developers to ship seamless, aesthetically refined digital products. Named Employee of the Month.</div>
+      </div>
+      <div class="exp-right">
+        <span class="exp-tag green">Employee of Month</span>
+        <span class="exp-tag">SaaS</span>
+        <span class="exp-tag">Web & Mobile</span>
+        <span class="exp-tag">Client Work</span>
+      </div>
+    </div>
+
+    <!-- Pixency -->
+    <div class="experience-item">
+      <div class="exp-left">
+        <div class="exp-company">Pixency</div>
+        <div class="exp-type">Full-time · Dhaka, Bangladesh</div>
+        <div class="exp-period">Aug 2023 — Oct 2024</div>
+      </div>
+      <div class="exp-middle">
+        <div class="exp-role">Jr. UI/UX Designer</div>
+        <div class="exp-desc">Built foundational skills across 500+ real-time client projects spanning diverse verticals — Web3, health, travel, legal, gaming, and more. Developed a strong eye for user-centered, conversion-focused design.</div>
+      </div>
+      <div class="exp-right">
+        <span class="exp-tag">500+ Projects</span>
+        <span class="exp-tag">Multi-vertical</span>
+        <span class="exp-tag">Adobe XD</span>
+        <span class="exp-tag">Figma</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 
 <!-- Collaborate Section -->
 <section class="section collab-section">
-   <!-- YouTube Background -->
-    <div class="video-wrapper">
-      <iframe 
-        class="background-video"
-        src="https://www.youtube.com/embed/80TsOWSXmek?autoplay=1&mute=1&loop=1&playlist=80TsOWSXmek&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0"
-        frameborder="0"
-        allow="autoplay; encrypted-media">
-      </iframe>
+  <div class="video-wrapper">
+    <iframe
+      class="background-video"
+      src="https://www.youtube.com/embed/80TsOWSXmek?autoplay=1&mute=1&loop=1&playlist=80TsOWSXmek&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0"
+      frameborder="0"
+      allow="autoplay; encrypted-media">
+    </iframe>
+  </div>
+  <div class="collab-content">
+    <div class="collab-header">
+      <div>
+        <h2>Why Collaborate with Me?</h2>
+        <p>Great design is more than visuals — it's about creating seamless, user-friendly experiences that drive results. I blend creativity, strategy, and collaboration to bring your vision to life.</p>
+      </div>
+      <a href="contact.html" class="collab-btn">Get in touch</a>
     </div>
-
-    <!-- Content -->
-    <div class="collab-content">
-        <div class="collab-header">
-            <div>
-                <h2>Why Collaborate with Me?</h2>
-                <p>Great design is more than visuals—it’s about creating seamless, user-friendly experiences that drive results. I blend creativity, strategy, and collaboration to bring your vision to life.</p>
-            </div>
-           <a href="contact.html" class="collab-btn">Get in touch</a>
-
+    <div class="collab-cards">
+      <div class="collab-card">
+        <div class="collab-card-icon"></div>
+        <div>
+          <div class="card-title">User-Centered Design</div>
+          <div class="card-desc">Intuitive, engaging, and tailored to your audience.</div>
         </div>
-        <div class="collab-cards">
-            <div class="collab-card">
-                <div class="collab-card-icon"></div>
-                <div>
-                    <div class="card-title">User-Centered Design</div>
-                    <div class="card-desc">Intuitive, engaging, and tailored to your audience.</div>
-                </div>
-            </div>
-            <div class="collab-card">
-                <div class="collab-card-icon"></div>
-                <div>
-                    <div class="card-title">Strategic Approach</div>
-                    <div class="card-desc">Research-driven decisions that align with your goals.</div>
-                </div>
-            </div>
-            <div class="collab-card">
-                <div class="collab-card-icon"></div>
-                <div>
-                    <div class="card-title">Seamless Collaboration</div>
-                    <div class="card-desc">Clear communication and a smooth workflow.</div>
-                </div>
-            </div>
+      </div>
+      <div class="collab-card">
+        <div class="collab-card-icon"></div>
+        <div>
+          <div class="card-title">Strategic Approach</div>
+          <div class="card-desc">Research-driven decisions that align with your goals.</div>
         </div>
+      </div>
+      <div class="collab-card">
+        <div class="collab-card-icon"></div>
+        <div>
+          <div class="card-title">Seamless Collaboration</div>
+          <div class="card-desc">Clear communication and a smooth workflow.</div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
-<div class="cta-section">
-    
 
+<!-- CTA -->
+<div class="cta-section">
   <h2 class="cta-text">
     See the impact of good, conversion-oriented<br>
     design on your business.
   </h2>
-
-  <a href="https://www.linkedin.com/in/s-sarman" class="cta-link">
-<div class="cta-gradient-text">Let’s Work Together</div>
+  <a href="contact.html" class="cta-link">
+    <div class="cta-gradient-text">Let's Work Together</div>
     <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
-      <path d="M8 46L46 8M46 8V38M46 8H16"
-        stroke="#14C304"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
+      <path d="M8 46L46 8M46 8V38M46 8H16" stroke="#14C304" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </a>
-
 </div>
+
 <div id="footer-placeholder"></div>
 
 <script>
-  // Load the external footer component
   fetch('../components/footer.html')
     .then(response => {
       if (!response.ok) throw new Error('Footer file not found');
@@ -231,11 +439,24 @@
     .catch(error => console.error('Error loading footer:', error));
 </script>
 
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
- <!-- PAGE 7 Footer Section -->
-  
+  document.querySelectorAll('.experience-item, .anim-fade-up').forEach((el, i) => {
+    if (el.classList.contains('experience-item')) {
+      el.style.transitionDelay = `${i * 0.08}s`;
+    }
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
-
-
