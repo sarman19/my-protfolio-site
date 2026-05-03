@@ -116,7 +116,7 @@ body {
 .name-text {
   margin-top: 8px;
   font-family: 'Inter', sans-serif;
-  font-size: 160px;
+  font-size: 140px;
   font-weight: 700;
   line-height: 160px;
   letter-spacing: -8px;
@@ -145,7 +145,7 @@ body {
 /* UX Designer */
 .ux-designer {
   font-family: 'Inter', sans-serif;
-  font-size: 160px;
+  font-size: 140px;
   font-weight: 700;
   line-height: 192px;
   letter-spacing: -8px;
