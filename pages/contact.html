@@ -723,6 +723,7 @@ textarea{min-height:150px;}
 <div id="footer-placeholder"></div>
 
 <script>
+  // Load the external footer component
 fetch('../components/footer.html')
   .then(response => {
     if (!response.ok) throw new Error('Footer file not found');
