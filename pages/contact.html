@@ -723,18 +723,23 @@ textarea{min-height:150px;}
 <div id="footer-placeholder"></div>
 
 <script>
-  // Load the external footer component
-  fetch('../components/footer.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Footer file not found');
-      return response.text();
-    })
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error('Error loading footer:', error));
-</script>
+fetch('../components/footer.html')
+  .then(response => {
+    if (!response.ok) throw new Error('Footer file not found');
+    return response.text();
+  })
+  .then(data => {
+    document.getElementById('footer-placeholder').innerHTML = data;
 
+    // Remove collaboration section only on contact page
+    const collabSection = document.querySelector('.collab-section');
+    
+    if (collabSection) {
+      collabSection.remove();
+    }
+  })
+  .catch(error => console.error('Error loading footer:', error));
+</script>
 </body>
 </html>
 
