@@ -26,5 +26,5 @@ This repository contains a static portfolio website for Shariar (Sarman). The pr
 
 ## Development
 
-Open `index.html` in a browser to view the site locally.
+Open `index.html` in a browser to view the site locally..
 
