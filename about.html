@@ -6,7 +6,7 @@
 <title>About | Shariar Sarman — Product Designer</title>
 <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@700&family=Geologica:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="../css/about.css">
 </head>
 <body>
 
@@ -37,9 +37,9 @@
     <p>I specialize in creating intuitive, user-friendly digital experiences. I help businesses transform ideas into visually stunning and highly functional designs, ensuring seamless user interaction.</p>
   </div>
 
-  <!-- RIGHT PHOTO — exactly left:817px, top:60px, 485×673px -->
+  <!-- RIGHT PHOTO — exactly left:817px, top:43px, 485×673px -->
   <div class="hero-photo-block">
-    <img src="/assets/images/myphoto3.png" alt="Shariar Sarman">
+    <img src="../assets/images/myphoto3.png" alt="Shariar Sarman">
   </div>
 
   <!-- CTA ROW — exactly left:135px, top:504px, width:1170px, space-between -->
@@ -56,10 +56,10 @@
     <div class="hero-stats-pill">
       <!-- Overlapping avatars -->
       <div class="hero-avatars">
-        <img src="/assets/images/Ellipse 112.png" alt="">
-        <img src="/assets/images/Ellipse 113.png" alt="">
-        <img src="/assets/images/Ellipse 114.png" alt="">
-        <img src="/assets/images/Ellipse 115.png" alt="">
+        <img src="../assets/images/Ellipse 112.png" alt="">
+        <img src="../assets/images/Ellipse 113.png" alt="">
+        <img src="../assets/images/Ellipse 114.png" alt="">
+        <img src="../assets/images/Ellipse 115.png" alt="">
       </div>
       <!-- Text + icons -->
       <div class="hero-stats-info">
@@ -227,7 +227,7 @@
   <div class="process-cards">
     <div class="process-card">
       <div class="process-card-img">
-        <img src="/assets/images/process1.jpg" alt="Discovery" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
+        <img src="../assets/images/process1.jpg" alt="Discovery" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
       </div>
       <div class="process-card-body">
         <span class="process-step">Step 1</span>
@@ -237,7 +237,7 @@
     </div>
     <div class="process-card">
       <div class="process-card-img">
-        <img src="/assets/images/process2.jpg" alt="Wireframing" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
+        <img src="../assets/images/process2.jpg" alt="Wireframing" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
       </div>
       <div class="process-card-body">
         <span class="process-step">Step 2</span>
@@ -247,7 +247,7 @@
     </div>
     <div class="process-card">
       <div class="process-card-img">
-        <img src="/assets/images/process3.jpg" alt="Design" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
+        <img src="../assets/images/process3.jpg" alt="Design" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
       </div>
       <div class="process-card-body">
         <span class="process-step">Step 3</span>
@@ -257,7 +257,7 @@
     </div>
     <div class="process-card">
       <div class="process-card-img">
-        <img src="/assets/images/process4.jpg" alt="Handoff" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
+        <img src="../assets/images/process4.jpg" alt="Handoff" onerror="this.style.background='rgba(20,195,4,0.08)';this.removeAttribute('src')">
       </div>
       <div class="process-card-body">
         <span class="process-step">Step 4</span>
@@ -325,7 +325,7 @@
 <div id="footer-placeholder"></div>
 
 <script>
-  fetch('./components/footer.html')
+  fetch('../components/footer.html')
     .then(r => { if (!r.ok) throw new Error('not found'); return r.text(); })
     .then(d => { document.getElementById('footer-placeholder').innerHTML = d; })
     .catch(() => {
